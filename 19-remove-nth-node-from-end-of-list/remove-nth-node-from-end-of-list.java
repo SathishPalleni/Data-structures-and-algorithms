@@ -10,22 +10,23 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
         if(head == null ) return head;
-          ListNode slow = head;
-        ListNode fast = head;
+        //move fast node n spcae a head
          for(int i  = 0 ; i < n ;i++){
             fast = fast.next;
         }
-        if(fast == null){
-            head = head.next;
-            return head;
-        }
+        // now move both until fast next is null
         while(fast.next != null){
             slow = slow.next;
             fast = fast.next;
         }
+        // now we have to move the next node of the sloe to remove nth node 
         slow.next = slow.next.next;
-        return head;
+        return dummy.next;
     
     }
 }
