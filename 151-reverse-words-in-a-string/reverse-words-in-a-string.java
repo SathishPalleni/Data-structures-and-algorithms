@@ -10,7 +10,7 @@ class Solution {
 
         for(int i = n - 1; i >= 0; i--){
             str.append(word[i]);
-            if(i > 0){
+            if(i  != 0){
                 str.append(" ");
             }
         }
